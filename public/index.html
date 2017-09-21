@@ -6,27 +6,63 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/all-tweets.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/font-awesome/font-awesome.min.css">
+
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="post" action="/tweets" class="posts-tweet">
+          <textarea name="text" placeholder="What are you humming about?" class="tweet-entry-field"></textarea>
+          <input type="submit" value="Tweet" class="tweet-button">
+          <span class="counter">140</span>
+        </form>
+      </section>
+      <section id="alltweets" class="alltweets">
+
+        <article class="tweet">
+          <header class="tweet-header">
+            <img class="user-image" src="http://images.clipartpanda.com/smiley-face-with-mustache-and-thumbs-up-9czxngMcE.png">
+            <span class="author"> Author name </span>
+            <span class="handle"> @tweeterHandle </span>
+          </header>
+          <p class="tweet-text">Tweet tweeet<p>
+          <footer class="tweet-footer">
+            <span class="tweet-time">90 million days ago</span>
+            <span class="tweet-options">
+              <!-- <p> flag re-tweet like</p> -->
+              <i class="fa fa-flag" aria-hidden="true"></i>
+              <i class="fa fa-retweet" aria-hidden="true"></i>
+              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            </span>
+          </footer>
+        </article>
+      </section>
+
     </main>
 
   </body>

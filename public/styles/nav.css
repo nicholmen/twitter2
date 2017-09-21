@@ -1,0 +1,34 @@
+nav {
+  /*Remove the height and width attributes of the image tag
+  in the HTML and instead use CSS to specify these. Keep it at 80px x 80px.*/
+  background-color: #00a087;
+  color: #e8fdff;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  /*right: 0;*/
+  top: 0;
+  z-index: 1;
+  /*align-items: center;*/
+  padding-left: 2em;
+  padding-right: 2em;
+  align-items: center;
+  display: flex;
+}
+
+#nav-bar .logo {
+   width: 80px;
+   height: 80px;
+   margin-right: 10px;
+}
+
+#nav-bar .header {
+  font-size: 2em;
+
+}
+
+#nav-bar .logo.header {
+  float: left;
+  margin: 5px;
+  background: pink;
+}
