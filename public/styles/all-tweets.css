@@ -55,11 +55,15 @@
 }
 
 .tweet .tweet-options {
-  visibility: hidden;
+  /*visibility: hidden;*/
   float: right;
   padding-right: .8em;
-
 }
+
+.tweet .tweet-options > i {
+  padding-right: 0.5em;
+}
+
 .tweet:hover .tweet-options  {
   visibility: visible;
 }

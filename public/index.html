@@ -17,7 +17,7 @@
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -28,8 +28,11 @@
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
+      <div id="logo">
+        <img class="logo" src="/images/bird.png">
+        <span class="header">Tweeter</span>
+      </div>
+      <button class="composeTweet"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Compose Tweet</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
@@ -44,26 +47,27 @@
           <input type="hidden" name="user[avatars]" value="" /> -->
           <span class="counter">140</span>
         </form>
+
       </section>
       <section id="alltweets" class="alltweets">
 
-        <article class="tweet">
-          <header class="tweet-header">
-            <img class="user-image" src="http://images.clipartpanda.com/smiley-face-with-mustache-and-thumbs-up-9czxngMcE.png">
-            <span class="author"> Author name </span>
-            <span class="handle"> @tweeterHandle </span>
-          </header>
-          <p class="tweet-text">Tweet tweeet<p>
-          <footer class="tweet-footer">
-            <span class="tweet-time">90 million days ago</span>
-            <span class="tweet-options">
-              <!-- <p> flag re-tweet like</p> -->
-              <i class="fa fa-flag" aria-hidden="true"></i>
-              <i class="fa fa-retweet" aria-hidden="true"></i>
-              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-            </span>
-          </footer>
-        </article>
+        <!--<article class="tweet">-->
+          <!--<header class="tweet-header">-->
+            <!--<img class="user-image" src="http://images.clipartpanda.com/smiley-face-with-mustache-and-thumbs-up-9czxngMcE.png">-->
+            <!--<span class="author"> Author name </span>-->
+            <!--<span class="handle"> @tweeterHandle </span>-->
+          <!--</header>-->
+          <!--<p class="tweet-text">Tweet tweeet<p>-->
+          <!--<footer class="tweet-footer">-->
+            <!--<span class="tweet-time">90 million days ago</span>-->
+            <!--<span class="tweet-options">-->
+              <!--&lt;!&ndash; <p> flag re-tweet like</p> &ndash;&gt;-->
+              <!--<i class="fa fa-flag" aria-hidden="true"></i>-->
+              <!--<i class="fa fa-retweet" aria-hidden="true"></i>-->
+              <!--<i class="fa fa-thumbs-up" aria-hidden="true"></i>-->
+            <!--</span>-->
+          <!--</footer>-->
+        <!--</article>-->
       </section>
 
     </main>

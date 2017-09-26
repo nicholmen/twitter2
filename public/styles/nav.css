@@ -14,6 +14,7 @@ nav {
   padding-right: 2em;
   align-items: center;
   display: flex;
+  justify-content: space-between;
 }
 
 #nav-bar .logo {
@@ -31,4 +32,19 @@ nav {
   float: left;
   margin: 5px;
   background: pink;
+}
+
+#nav-bar .composeTweet {
+  font-family: inherit;
+  border-radius: 5px;
+  border: solid black 1px;
+  margin: 5px;
+  background-color: #E8E8E8;
+  height: 50px;
+}
+
+#nav-bar #logo {
+  height: 100%;
+  align-items: center;
+  display: flex;
 }

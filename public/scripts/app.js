@@ -24,39 +24,44 @@
 
 
 $(function() {
-
+    $( "#nav-bar .composeTweet" ).click(function() {
+        $( ".new-tweet" ).toggle( "slow", function() {
+            // Animation complete.
+        });
+    });
   $("form").submit(function(event) {
     event.preventDefault();
 
-  if($('.tweet-entry-field').val() == "") {
-      alert("Please enter a tweet. Please!")
-      return
-  }
-  if ($('.tweet-entry-field').val().length > 140) {
-      alert("Please enter 140 characters or less")
-      return
-  }
-
-  $.ajax({
-    type: "POST",
-    url: "/tweets",
-    data: $( this ).serialize(), //Get the string representation of the from
-    // error(xhr, status, error) {
-    //   alert(error);
-    // },
-    error: function (xhr, status, error) {
-      alert(error);
-    },
-    success: function () {
-      $('.tweet-entry-field').val('');
-      loadTweets();
-
-      // clear out the text box
-      // reload all tweets
+    if($('.tweet-entry-field').val() == "") {
+        alert("Please enter a tweet. Please!")
+        return
     }
-    // success: success,
-      // dataType: dataType
-    });
+    if ($('.tweet-entry-field').val().length > 140) {
+        alert("Please enter 140 characters or less")
+        return
+    }
+
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: $( this ).serialize(), //Get the string representation of the from
+      // error(xhr, status, error) {
+      //   alert(error);
+      // },
+      error: function (xhr, status, error) {
+        alert(error);
+      },
+      success: function () {
+        $('.tweet-entry-field').val('');
+        //collapse form here
+        loadTweets();
+
+        // clear out the text box
+        // reload all tweets
+      }
+      // success: success,
+        // dataType: dataType
+      });
   });
 
   function createTweetElement(data) {
@@ -74,17 +79,25 @@ $(function() {
     var $tweetTime = $("<span>").addClass("tweet-time");
     var $tweetOptions = $("<span>").addClass("tweet-options");
 
+    var $tweetOptionLike = $('<i>').addClass("fa fa-flag");
+    var $tweetOptionRetweet = $('<i>').addClass("fa fa-retweet");
+    var $tweetOptionFlag = $('<i>').addClass("fa fa-thumbs-up");
+
     $tweetAuthor.text(data.user.name);
     $authorHandle.html(data.user.handle);
     $userImg.attr("src", data.user.avatars.small)
 
     $tweetText.html(data.content.text)
 
-    $tweetTime.html(data.created_at)
+    $tweetTime.html(moment(data.created_at).fromNow())
 
     $tweetHeader.append($userImg);
     $tweetHeader.append($tweetAuthor);
     $tweetHeader.append($authorHandle);
+
+    $tweetOptions.append($tweetOptionLike);
+    $tweetOptions.append($tweetOptionRetweet);
+    $tweetOptions.append($tweetOptionFlag);
 
     $tweetFooter.append($tweetTime);
     $tweetFooter.append($tweetOptions);
@@ -103,7 +116,7 @@ $(function() {
   };
 
   function renderTweets(tweets) {
-    var tweetcontainer = $("#alltweets")
+    var tweetcontainer = $("#alltweets");
     tweetcontainer.empty();
     tweets.forEach(function (tweetz) {
       tweetcontainer.prepend(createTweetElement(tweetz))
